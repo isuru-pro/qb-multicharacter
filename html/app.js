@@ -197,6 +197,12 @@ document.addEventListener("DOMContentLoaded", () => {
                             }, 2000);
                         }
                         break;
+                    case "showLogin":
+                        document.getElementById('login-container').style.display = 'block';
+                        break;
+                    case "hideLogin":
+                        document.getElementById('login-container').style.display = 'none';
+                        break;
                     case "setupCharacters":
                         var newChars = [];
                         for (var i = 0; i < event.data.characters.length; i++) {

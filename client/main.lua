@@ -15,7 +15,7 @@ CreateThread(function()
     while true do
         Wait(0)
         if NetworkIsSessionStarted() then
-            TriggerEvent('qb-multicharacter:client:chooseChar')
+            TriggerEvent('qb-multicharacter:client:showLogin')
             return
         end
     end

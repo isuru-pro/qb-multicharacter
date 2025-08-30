@@ -8,6 +8,13 @@ Config.EnableDeleteButton = true                                      -- Define 
 Config.customNationality = false                                      -- Defines if Nationality input is custom of blocked to the list of Countries
 Config.SkipSelection = false                                          -- Skip the spawn selection and spawns the player at the last location
 
+-- Authentication Settings
+Config.RequireAuthentication = true                                   -- Require login before character selection
+Config.AllowRegistration = true                                       -- Allow new user registration
+Config.MinPasswordLength = 6                                          -- Minimum password length
+Config.MaxLoginAttempts = 5                                           -- Maximum login attempts before temporary lockout
+Config.LockoutDuration = 300                                          -- Lockout duration in seconds (5 minutes)
+
 Config.DefaultNumberOfCharacters = 5                                  -- Define maximum amount of default characters (maximum 5 characters defined by default)
 Config.PlayersNumberOfCharacters = {                                  -- Define maximum amount of player characters by rockstar license (you can find this license in your server's database in the player table)
     { license = 'license:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', numberOfChars = 2 },

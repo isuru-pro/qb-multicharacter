@@ -88,6 +88,15 @@ end)
 
 RegisterNetEvent('qb-multicharacter:server:loadUserData', function(cData)
     local src = source
+    
+    -- Check if user is authenticated
+    local license = QBCore.Functions.GetIdentifier(src, 'license')
+    local userAccount = exports['qb-multicharacter']:GetUserByLicense(license)
+    if not userAccount then
+        TriggerClientEvent('qb-multicharacter:client:showLogin', src)
+        return
+    end
+    
     if QBCore.Player.Login(src, cData.citizenid) then
         repeat
             Wait(10)
@@ -112,6 +121,15 @@ end)
 
 RegisterNetEvent('qb-multicharacter:server:createCharacter', function(data)
     local src = source
+    
+    -- Check if user is authenticated
+    local license = QBCore.Functions.GetIdentifier(src, 'license')
+    local userAccount = exports['qb-multicharacter']:GetUserByLicense(license)
+    if not userAccount then
+        TriggerClientEvent('qb-multicharacter:client:showLogin', src)
+        return
+    end
+    
     local newData = {}
     newData.cid = data.cid
     newData.charinfo = data
@@ -184,6 +202,14 @@ QBCore.Functions.CreateCallback('qb-multicharacter:server:GetNumberOfCharacters'
 end)
 
 QBCore.Functions.CreateCallback('qb-multicharacter:server:setupCharacters', function(source, cb)
+    local src = source
+    local license = QBCore.Functions.GetIdentifier(src, 'license')
+    local userAccount = exports['qb-multicharacter']:GetUserByLicense(license)
+    if not userAccount then
+        cb({})
+        return
+    end
+    
     local license = QBCore.Functions.GetIdentifier(source, 'license')
     local plyChars = {}
     MySQL.query('SELECT * FROM players WHERE license = ?', { license }, function(result)

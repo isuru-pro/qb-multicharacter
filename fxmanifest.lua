@@ -13,30 +13,36 @@ shared_scripts {
 }
 
 client_scripts {
-    'client/main.lua'
+    'client/main.lua',
+    'client/auth.lua'
 }
 
 server_scripts {
     '@oxmysql/lib/MySQL.lua',
     '@qb-apartments/config.lua',
-    'server/main.lua'
+    'server/main.lua',
+    'server/auth.lua'
 }
 
 ui_page 'html/index.html'
 
 files {
     'html/index.html',
+    'html/login.html',
     'html/style.css',
+    'html/login-style.css',
     'html/reset.css',
     'html/vue.js',
     'html/swal2.js',
     'html/profanity.js',
     'html/translations.js',
     'html/validation.js',
-    'html/app.js'
+    'html/app.js',
+    'html/login-app.js'
 }
 
 dependencies {
     'qb-core',
-    'qb-spawn'
+    'qb-spawn',
+    'fivem-bcrypt-async'
 }
